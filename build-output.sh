@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
-echo -n "test output" && sleep 5 && echo "Hello"
-echo -n " World!!" && sleep 15 && echo "Have a wonderful day!"
+echo -n "Docker Demo" && sleep 2 
+echo  -n "   Hello" World!! " && sleep 3 && echo -n "  Have a wonderful day!"
