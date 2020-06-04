@@ -13,8 +13,7 @@ node {
     stage('Build') {
                 sh 'ls -l;pwd'
                 println "Docker Build Starting"
-                //sh "sed -i 's/docker.artifactory/localhost:8082/' Dockerfile"
-                tagName = "localhost:8082/docker-local/dockerdemo-pipeline:${env.BUILD_NUMBER}"
+                tagName = "localhost:8082/docker-local/dockerdemo-pipeline:${env.BUILD_NUMBER}.1"
                 println "DockerDemo Framework Build"
                 docker.build(tagName)
                 println "Docker pushing -->" + tagName + " To " + "dokcer-local"
