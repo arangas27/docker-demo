@@ -21,4 +21,18 @@ node {
                 println "Docker Buildinfo"
                 rtServer.publishBuildInfo buildInfo
     }
+    //Promote image from local to staging repositoy
+    stage ('Promote') {
+            def promotionConfig = [
+              'buildName'          : env.JOB_NAME,
+              'buildNumber'        : env.BUILD_NUMBER,
+              'targetRepo'         : 'ar-docker-stage-ca',
+              'comment'            : 'Promoted to Stage',
+              'sourceRepo'         : 'docker-local',
+              'status'             : 'Released1',
+              'includeDependencies': false,
+              'copy'               : true
+            ]
+            rtServer.promote promotionConfig
+    }
   }
